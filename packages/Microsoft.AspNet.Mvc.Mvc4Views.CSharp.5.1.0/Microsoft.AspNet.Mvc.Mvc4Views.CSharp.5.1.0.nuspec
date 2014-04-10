@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.AspNet.Mvc.Mvc4Views.CSharp</id>
+    <version>5.1.0</version>
+    <title>Microsoft ASP.NET MVC 4 Styled (C#) Scaffolding View Templates</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnetcomponent_rtw_ENU.htm</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>The package provides C# view templates for ASP.NET MVC 5 scaffolding, which generate views compatible with the ASP.NET MVC 4 styling. Install this package to scaffold views with the same look and feel as the ASP.NET MVC 4 tools and project templates.</description>
+    <releaseNotes>Please visit http://go.microsoft.com/fwlink/?LinkId=389866 to view the release notes.</releaseNotes>
+    <copyright />
+    <language>en-US</language>
+    <tags>Microsoft AspNet Mvc AspNetMvc</tags>
+  </metadata>
+</package>

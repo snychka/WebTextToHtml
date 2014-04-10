@@ -1,0 +1,4 @@
+C:\Users\stefannychka\Documents\Visual Studio 2012\Projects\WebTextToHtml\Converter\bin\Release\Converter.dll
+C:\Users\stefannychka\Documents\Visual Studio 2012\Projects\WebTextToHtml\Converter\bin\Release\Converter.pdb
+C:\Users\stefannychka\Documents\Visual Studio 2012\Projects\WebTextToHtml\Converter\obj\Release\Converter.dll
+C:\Users\stefannychka\Documents\Visual Studio 2012\Projects\WebTextToHtml\Converter\obj\Release\Converter.pdb

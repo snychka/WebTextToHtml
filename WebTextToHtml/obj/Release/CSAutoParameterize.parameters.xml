@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Text2HtmlContext-Web.config Connection String" description="Text2HtmlContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=Text2HtmlContext;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\Text2HtmlContext.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\stefannychka\\Documents\\Visual\ Studio\ 2012\\Projects\\WebTextToHtml\\WebTextToHtml\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Text2HtmlContext']/@connectionString" />
+  </parameter>
+</parameters>

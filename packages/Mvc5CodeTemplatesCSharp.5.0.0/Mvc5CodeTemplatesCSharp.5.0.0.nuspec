@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>Mvc5CodeTemplatesCSharp</id>
+    <version>5.0.0</version>
+    <title>MVC 5 Code Templates</title>
+    <authors>Victor Cavalcante</authors>
+    <owners>Victor Cavalcante</owners>
+    <licenseUrl>http://aspnet.codeplex.com/license</licenseUrl>
+    <projectUrl>http://aspnet.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adds the C# ASP.NET MVC Code Templates for use in customizing Add View and Add Controller scaffolding.</description>
+    <summary>Adds the C# ASP.NET MVC 5 Code Templates for use in customizing Add View and Add Controller scaffolding. The project must be reopened to clear a spurious error from the error list.</summary>
+    <releaseNotes />
+    <copyright />
+    <language>en-US</language>
+  </metadata>
+</package>
