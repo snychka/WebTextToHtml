@@ -1,4 +1,4 @@
-﻿@* Copyright Stefan Nychka, BSD 3-Clause license, COPYRIGHT.txt*@
+﻿@* Copyright Stefan Nychka, BSD 3-Clause license, LICENSE.txt*@
 @{
     ViewBag.Title = "Converted Text";
 }
@@ -35,9 +35,11 @@
             <input type="submit" name="Save" value="Save" disabled class="disabled"/>
         }
     </div>
-    <div class="float-right left-border" style="width:75%;">
-        @Html.Raw(ViewBag.Content as string)
-    </div>
+
+<div class="float-right left-border" style="width:75%;">
+@Html.Raw(ViewBag.Content as string)
+</div>
+
 </div>
 
 @Html.ActionLink("Back to main page", "Index")

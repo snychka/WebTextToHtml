@@ -1,4 +1,4 @@
-﻿// Copyright Stefan Nychka, BSD 3-Clause license, COPYRIGHT.txt
+﻿// Copyright Stefan Nychka, BSD 3-Clause license, LICENSE.txt
 using System;
 using System.Collections.Generic;
 using System.Linq;

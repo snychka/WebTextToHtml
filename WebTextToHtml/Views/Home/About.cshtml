@@ -1,34 +1,453 @@
-﻿@{
+﻿@* Copyright Stefan Nychka, BSD 3-Clause license, LICENSE.txt *@
+@* Try to create so less hardcoded *@
+@{
     ViewBag.Title = "About";
 }
 
 <hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>@ViewBag.Message</h2>
+    <h1>@ViewBag.Title</h1>
 </hgroup>
 
-<article>
-    <p>
-        Use this area to provide additional information.
-    </p>
+<p>
+<em>vim2Html</em> takes a text file, most conveniently created by <a href="http://www.vim.org">vim</a>,
+(also see <a href="#settings">vim Settings</a>) and creates corresponding html.  It is easiest
+explained via some examples of the resulting html in the &lt;body&gt; tag.  And, you
+can just try this out by </p>
 
-    <p>
-        Use this area to provide additional information.
-    </p>
+<ol>
+    <li>coping this sample text linking to <a href="#sample">tornado videos</a>,</li> 
+    <li>going to the @Html.ActionLink("Home", "Index", "Home") page and pasting in the text, and</li>
+    <li>hitting the <em>Convert Text</em> button to see the results!</li>
+</ol>
 
-    <p>
-        Use this area to provide additional information.
-    </p>
-</article>
+<p>(You can use the text in the examples below)</p>
 
-<aside>
-    <h3>Aside Title</h3>
-    <p>
-        Use this area to provide additional information.
-    </p>
-    <ul>
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("About", "About", "Home")</li>
-        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-    </ul>
-</aside>
+
+<ul>
+
+    <li>
+  <p><strong>Example 1</strong> text:</p>
+
+<pre>a paragraph</pre>
+
+
+   Resulting html:
+
+<pre>&lt;p&gt;
+a paragraph
+&lt;/p&gt;</pre>
+</li>
+
+
+        <li>
+  <p><strong>Example 2</strong> text:</p>
+
+<pre>- a list and bullet</pre>
+
+
+   Resulting html:
+
+<pre>&lt;ul&gt;
+  &lt;li&gt;
+  a list and bullet
+  &lt;/li&gt;
+&lt;/ul&gt;</pre>
+</li>
+
+           <li>
+  <p><strong>Example 3</strong> text:</p>
+
+<pre>a paragraph
+- a list and bullet
+  - an indented bullet
+  - 2nd indented bullet
+- 2nd outer bullet
+- a longer line with a url, http://www.notarealsite.com/ . note how
+  subsequent newlines in a bullet should be sufficiently indented
+a new paragraph
+
+2 subsequent paragraphs must be separated by a space</pre>
+
+
+   Resulting html:
+
+<pre>&lt;p&gt;
+a paragraph
+&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+  a list and bullet
+  &lt;ul&gt;
+    &lt;li&gt;
+    an indented bullet
+    &lt;/li&gt;
+    &lt;li&gt;
+    2nd indented bullet
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+  2nd outer bullet
+  &lt;/li&gt;
+  &lt;li&gt;
+  a longer line with a url, &lt;a href="http://www.notarealsite.com/," target="_blank"&gt;http://www.notarealsite.com/&lt;/a&gt; . note how
+  subsequent newlines in a bullet should be sufficiently indented
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+a new paragraph
+&lt;/p&gt;
+&lt;p&gt;
+2 subsequent paragraphs must be separated by a space
+&lt;/p&gt;
+</pre>
+</li>
+
+</ul>
+
+<h2 id="sample">Sample Text (tornado videos)</h2>
+
+<p>Click in the box, hit Ctlr-A (Command-A on a Mac) to highlight all the text, then copy it.</p>
+
+<textarea cols="80" rows="30" style="font-family: Courier; white-space: pre; width: 120ex" readonly>http://www.youtube.com/watch?v=oJlfAGC8G8w
+- fairly famous F5 (likely F3 at this point), rips through McConnell Air Force
+  base in Wichita, Kansas.  Also called Andover tornado, 1991
+- note F3 could be an F5
+- http://www.youtube.com/watch?v=_8JZrmk5qYA (probably F4/F5 by end of this one)
+http://www.youtube.com/watch?v=aBpsfdv_2FY
+- Attica KS, May 12 2004
+- storm stock, left-to-right, big, slow forward motion, lifts and
+  destroys house, fairly famous.  F2
+- likely just top of house, essentially the roof
+http://www.youtube.com/watch?v=3Qu9wR03GVA
+- Reed, Chris, Dominator, one that blows out window as the last part passes, and
+  hits them, Aurora NE June 17 2009
+- fairly famous, EF3 likely
+http://www.youtube.com/watch?v=ebi5jTc-amU
+- huge, black tornado, only reasonably strong, so an EF2 or 3, likely Aurora,
+  NE.  Reports Reed and Chris had their blow-out in this one.  "approaching a
+  twisting storm".  some damage.
+  - compare to EF5 Joplin -- http://www.youtube.com/watch?v=XT7CtF5ljxY -- which
+    is large but powerful ... large !necessarily= powerful
+  - Joplin at that point was apparently also only an EF2/3, but looked way more
+    violent
+  - it was the deadliest modern (i.e., post-1950) tornado, in part due to 2
+    storms merging which caused it to be rain-wrapped as opposed to on the edge
+    of the storm
+http://www.youtube.com/watch?v=Skjwgm5MTfc
+- Nebrasksa, Bradshaw, June 20, 2011.  probably strong EF2
+- 2 separate, 1st large and dark, TIV in front, right to left
+- http://www.youtube.com/watch?v=nWfHhE2ejyU
+  - towards end, 11-11:35, same tornado but closer, guy who gets out of tiv
+http://www.youtube.com/watch?v=5VeX_fIwoI4
+- probably Tuscaloosa, definitely 2011, city, approaches and goes to
+  left ... EF4
+http://www.youtube.com/watch?v=wqNkxQYltb4
+- Tuscaloosa, cell phone, fairly close, from parkade, peeking out
+  periodically, see some trees pulled over behind tornado
+http://www.youtube.com/watch?v=kTgSaq2nRiU
+- likely Tuscaloosa EF4, approaching, misses to right, in convenience store,
+  filmed with cell
+http://www.youtube.com/watch?v=oxbx5DrYoG4 (funny)
+
+http://www.youtube.com/watch?v=Sqifvb8ZQE0
+- Andy Gabrielson, Wilkin county, Minnesota, faster camera speed first.
+  hits house last part at 3:10 (likely no one home), likely EF4
+http://www.youtube.com/watch?v=DIkIzqClQyQ
+- Wilkin county, Minnesota (not Andy, likely same one, different
+  point of view), hits house.  long ways away, zoom.  5 min., and
+  12:20 (slo-mo) ... Bon Jovi and da Crue.  no fire
+http://www.youtube.com/watch?v=PzsvHOOnvaI
+- EF4, MN, long ways away, but zoom shows how fast and shows damage.  fairly
+  perfectly formed.  likely same as other 2 Wilkin county (same date, and
+  Campbell is in Wilkin county)
+http://www.youtube.com/watch?v=aijg8hWU4fM
+- tornado coming straight on, very calm guy, misses him to his left,
+  reasonably powerful (EF3-ish, stong EF2, likely)
+http://www.youtube.com/watch?v=h84yTNXCXPQ
+- close, large, strong (EF5, likely, inflow jets), fast moving, guy
+  likely underestimates speed, approaching from their right
+- Lookeba OK, May 24 2011
+http://www.youtube.com/watch?v=Nc5UAscKIr8
+- Reed, Joel, Chris, lots of small ones fairly close, a little bit of
+  destruction of a hay bale
+- Oklahoma, May 10, 2010, likely Enid
+http://www.youtube.com/watch?v=CfVXdtg5HJA
+- nothing til 6:25, car hit, multiple short-lived, fairly weak, close
+- Enid, OK, likely May 10, 2010
+- likely better version of this somewhere
+http://www.youtube.com/watch?v=WrK2ytxS83w
+- 1986, airplane, F2 likely, seems fairly close (likely because of zoom),
+  bends and rips out trees
+http://www.youtube.com/watch?v=MHFapclyV6Q
+- Reed, Canadian tornado, large, multivortex
+http://www.youtube.com/watch?v=NlGsNN7TPrc
+- girl and guy in car, Billings, Montana, not too strong, likely EF2, throws up
+  parts of a larger structure (an arena or mall), they drive away toward end
+http://www.youtube.com/watch?v=r08pzhA1iHM
+- Sweden, small tornado goes right by (within feet) of car, cracks a
+  small tree in half.  go to 1:15.  slo-mo at end
+http://www.youtube.com/watch?v=dcdyKoI1NhM
+- 1:05.  likely Russian, small, bad camera-work, but close and whips car a few
+  metres
+http://www.youtube.com/watch?v=VZCP0LyqP1Y
+- Russian, tornado approaches an apartment, centred to left, not too strong, but
+  they get hit by edge
+http://www.youtube.com/watch?v=EwHM5AAH9vM
+- Russian, in city
+http://www.youtube.com/watch?v=CAhWV1WwV08
+- EF3, Sweetwater Oklahoma, 2007, obliterates school
+- spring 2007 > Feb. 1 2007, http://en.wikipedia.org/wiki/Enhanced_Fujita_scale
+http://www.youtube.com/watch?v=CxpvPhFne2U
+- huge EF4 wedge, close, hits farm. chaser and fiance.  better pictures start at
+  4:00
+http://www.youtube.com/watch?v=WtlVzzF2Bec
+- tornado goes across paved road, left to right, destroys house
+- filmer stationary
+- (not Minnesota Andy Gabrielson one)
+http://www.youtube.com/watch?v=9Rl-IlMpfUo
+- close, Elie Manitoba, short
+- buildings/trees in way, but destruction just beyond
+- fast rotation
+- F5, likely.  maybe throws car (14 sec. right part of screen)
+http://www.youtube.com/watch?v=W7TNqhaBxcc
+- F1 tornadoes, 2nd anti-cyclonic
+- destroys a pig farm and 2nd damages a hanger
+http://www.youtube.com/watch?v=sr8Cf2m_LpQ
+- very strong, narrow tornado
+- close tornado, some shrub, maybe fence descruction, about 4-4:30
+- Reed and Joel, pre-dominator days
+- likely May 4 2007 in Ellis Co. OK
+- apparently used in a highly mathematical study of
+  http://onlinelibrary.wiley.com/doi/10.1002/asl.217/full ... used because of
+  helical vortices ... scroll down to picture
+http://www.youtube.com/watch?v=UL_6XFhMwPk
+- Aukland, right to left across busy road
+http://www.youtube.com/watch?v=8tc_k1qk6fc
+- security cameras, close, tornado destroys roof-only garage
+http://www.youtube.com/watch?v=SWiPWwOajtY
+- mult. security cameras, West Liberty KY, Mar. 2, 2012, really poor but close  
+- an EF3
+- quit at ~7 min.
+- http://www.youtube.com/watch?v=WMsUQGL7j5Q
+  - some different angles
+  - really good at 0:50
+http://www.youtube.com/watch?v=SLYswfFI7nA
+- 1 or 2 small, rope tornadoes; hits trees at start; country side; Andy
+  Gabrielson
+http://www.youtube.com/watch?v=BPh3IRQGsAI
+- close, EF4, Henryvill IA, don't really see anything hit
+http://www.youtube.com/watch?v=Mm2BettTn8s
+- "tunnel" of trees obscuring, heads left to right across road in
+  front, close
+http://www.youtube.com/watch?v=WXEJwzyJFAY
+- SD, F4, big, left to right, golden and sunlit field, hits farm house
+- only good up until 0:45
+http://www.youtube.com/watch?v=RVRTNWXwyN8
+- right-to-left, very close, Arlington TX 2012, inside car crusher(?)
+- up unil 1:50
+http://www.youtube.com/watch?v=UzpuNmhvqN4
+- tornado, close, right-to-left across freeway, likely EF1/2, TX
+- probably same as one viewed from car crusher(?)
+http://www.youtube.com/watch?v=JAUX-zin06g
+- barely visible til damages building to left or road, close, Apr. 14,
+  2012, OK (Ingersoll)
+- probably relatively weak
+- 0:50
+http://www.youtube.com/watch?v=p6uoM_z333Q
+- likely EF4, left-to-right, fairly close, some buildings, debris,
+  Kansas Apr. 14, 2012
+- country-side, a few lightning strikes
+http://www.youtube.com/watch?v=bYT1DZ7udkg
+- doesn't hit anything, but narrow, and can see it's fast (EF5?), Apr. 14, 2012
+- longer version:  http://www.youtube.com/watch?v=o1zsMr2DL_I
+http://www.youtube.com/watch?v=Xb7E7tENpDY
+- Samaras, Apr. 17, 2012, tornado crosses highway right-to-left, brief,
+  barely noticeable, scene of preceding trees flattened @@ ~1:25, likely EF4
+http://www.youtube.com/watch?v=Q86rx-HSM98
+- Louisiana, EF1, very close, flips flimsy house, start watching @@ 4:25
+http://www.youtube.com/watch?v=EY3Nw1Y4NV0
+- TVN, Reed, small, brief, multiple vortices, close, Wyoming, June 7, 2012
+- a tree knocked over
+http://www.youtube.com/watch?v=XInx2RsPIz8
+- driving fast towards, left-to-right across road,
+  takes down trees, it's likely an EF2/3, fairly small, power-flashes.
+- Samaras, Twistex, according to Storm Chasers, Season 5, Ep. 1,
+  http://www.youtube.com/watch?v=E5CbOW_x5mI, ~14:30-15:30
+- seems more likely was Andy
+http://www.youtube.com/watch?v=jrkzBpeybkc
+- Reed, etc., right-to-left, close to overpass and parellels bridge,
+  lots of power flashes.
+- Jackson, MS, Apr. 15, 2011
+- destruction:  structure (likely not, but maybe a car), and a tree/shrub
+http://www.youtube.com/watch?v=OF4FGk-qR8A
+- Poland, right to left, country side, green hills, some houses and trees, some
+  minor destruction
+http://www.youtube.com/watch?v=HCUHtyFcRUI
+- 1990, Hesston KS, likely 1st of the 2 F5s that day
+- http://en.wikipedia.org/wiki/March_1990_Central_US_tornado_outbreak#The_Hesston_and_Goessel_tornado_family
+http://www.youtube.com/watch?v=avszUNRkV8I
+- Chickasha OK, May 24, 2011, tornado forms, comes at car,
+  they back up, tornado goes left to right, and it destroys buildings to right
+  of car, mainly obscured but close.  became or maybe was an EF4
+- not the same as the Canton Lake tornado, which is more NW, was a different
+  tornado, was an EF3, although it was on the same date
+- also same day as an EF5:
+  http://www.srh.noaa.gov/oun/?n=events-20110524-tornado-b2
+http://www.youtube.com/watch?v=1SBP-Dy8_II
+- KS, 2012, EF3 (only?) multiple views, deforms wind turbine, goes across road
+  left to right and topples trees and power poles
+http://www.youtube.com/watch?v=dZb1mq_aAD8
+- white/grey tornado forms very close, fairly small at least initially.
+http://www.youtube.com/watch?v=zPGlgMg72iE
+- 7:35-8:00, in tornado; maybe an EF3, but probably weaker at least at that
+  point, SpringField, MA, June 1, 2011
+- a hodge-podge of videos otherwise, some okay
+- http://en.wikipedia.org/wiki/2011_New_England_tornado_outbreak#The_Greater_Springfield_tornado
+http://www.youtube.com/watch?v=N97gC84QsGg
+- probably EF0-EF1, maybe EF2,  in Venezuela. takes out some weaker structures
+http://www.youtube.com/watch?v=ZfbxEffwOi8
+- 2010, EF2, Yates city, to left of car and paths are parellel, a ways away but
+  some footage of trees being uprooted, and see other debris
+http://www.youtube.com/watch?v=QrM0aecr1es
+- Reed, Joel, tornado above, then passes right to left very close to Dominator,
+  ripping up smaller trees, although only brief shots, up to 2 min. mark.
+- http://www.youtube.com/watch?v=QrM0aecr1es
+  - more edited, German dubbed, slightly better quality, more of that single
+    tornado overall
+http://www.youtube.com/watch?v=uBLNxIWVT50
+- Cordova, AL, EF4, about to hit house where camera was
+http://www.youtube.com/watch?v=ZvxK4Qq8XnM
+- Fyffe, AL, Apr. 27, 2011, footage from lady in house through window.
+- see some tree toppled, 0:35-1:00
+http://www.youtube.com/watch?v=Ut6w0VfX4SE
+- 2 simultaneous tornadoes initially
+- some blury and shaky shots of minor damage, zooming, a ways away, Apr. 2012,
+  a fairly weak tornado at the time, Cherokee OK
+- 2:45-3:45, 4-4:25
+- to left of vehicle most of the time, at end starts moving toward and across
+  road in front of vehicle, left to right
+http://www.youtube.com/watch?v=5pyvf4Nr9CE
+- tornado left-to-right, shaky, but close and just in front of car, and some
+  buildings destroyed, "we are in a tornado" repeated over and over
+http://www.youtube.com/watch?v=shREKK6nTy0&NR
+- Poland, no sound, hit by weak tornado, inside house, see some tree snapped
+http://www.youtube.com/watch?v=TKLgn0pKMUw
+- small, close, parking lot, coming at car, barely misses to camera's original
+  right, Marseille France, Oct. 2012
+- a few shots, but initial shot is best one
+http://www.youtube.com/watch?v=iNOlL5tWxTg
+- no destruction, a bit grainy, but an impressive tornado
+http://www.youtube.com/watch?v=l_kzKP0IYSY
+- Mar. 8 2010, Hammon OK, Gabrielson, not overly powerful tornado, to left of
+  vehicle, then crosses road, damages a shack and some minor damage to houses
+http://www.youtube.com/watch?v=8fuCoA69Nc0
+- Portugal, small field and stadium, filmed from inside, tornado coming straight
+  on
+- hear roar and get a 1st-hand feel for the power, even though it wasn't the
+  strongest ... EF0 to EF2, likely
+- Nov. 16, 2012
+http://www.youtube.com/watch?v=sqP6WbVyz-M
+- Apr. 9, 2011 Mapleton Iowa
+- dark, and basically can't see anything being damaged, but very close
+- fairly violent, likely EF3
+- http://www.youtube.com/watch?v=z6dqQ3nmdg8 ... car behind, w/ McGowan and
+  Gabrielson
+http://www.youtube.com/watch?v=rs_lnompWpA
+- 8:45 on, right-to-left, rips off walls/roofs of what are likely smaller
+  structures
+- North Platte NE, 1989, probably June 25, probably F3
+- very poor quality, though
+http://www.youtube.com/watch?v=WDWsa8LT3H8
+- May 17, 2013, Eliasville TX
+- smaller rope tornado, reasonably strong
+- close, rips up some trees and a few bits of a structure
+- across road, right to left
+http://www.youtube.com/watch?v=VvAthNEqxJg
+- May 19, 2013, Edmond, OK.  Dominator
+- fairly close.  1 or 2 weaker ones, one fairly strong.
+  - could all be same one in various stages of development
+- a few branches ripped off
+- http://www.youtube.com/watch?v=eIR4A3KQ-zA
+  - same tornado, at start, but different viewpoint
+http://www.youtube.com/watch?v=v3o6wTcy4UQ
+- May 20, 2013 Moore OK tornado
+- close, from storm shelter, on a phone, but obviously not directly in tornado
+http://www.youtube.com/watch?v=ziZNsproDzs
+- May 31, 2013, close to Union City OK, maybe hit by tornado
+- can't see tornado, though, so maybe just really strong inflow or rfd
+- hit by hay bail and debris from right
+http://www.youtube.com/watch?v=kOh9Ptz4w28
+- Reed, May 31, 2013, El Reno OK
+- multiple vortices, close, right to left
+- no destruction
+http://www.youtube.com/watch?v=rl7ZYFHgC7s
+- El Reno OK, May 31, 2013
+- likely one that killed Tim Samaras and his partners, and flipped weather
+  channel vehicle
+- going south, or south east, then turned north
+- no destruction.  multi-vortex.  one of many videos of same tornado.  likely
+  turned into a huge 2.5 or more mile wide wedge, largest officially recorded,
+  likely approaching 300 m/h winds ... almost fastest recorded
+- EF3, finally, but based only on damage, not wind speed, which puts it in the
+  EF5 range:  http://en.wikipedia.org/wiki/2013_El_Reno_tornado
+- likely explanation of storm chaser deaths
+  - Dan Robinson explanation, ahead of but same path as Tim Samaras/TWISTEX:
+    http://stormhighway.com/may312013.php
+    - video:  http://www.youtube.com/watch?v=MxgU1QcFMJM
+  - overall explanation, with radar:
+    http://www.youtube.com/watch?v=jVTs55W3Iag
+    - more detailed:  http://www.youtube.com/watch?v=bJOjjzHUwsk
+  - so, roughly, turned north more sharply, rain wrapped so didn't see til too
+    late, on gravel roads and tornado got big, with strong outer-band winds,
+    preventing proper traction to get away
+  - unsure why chasers didn't head west ... maybe rain-wrapped, so thought
+    tornado was more to southwest than south-southeast, and maybe because before
+    turned north, it just sat there, causing them to incorrectly think it had
+    moved further east
+http://www.youtube.com/watch?v=Rw_l8FnyhUU
+- helicopter sucked into tornado
+- small chance it's a fake
+- comments seem to indicate it's fake, and tornado does look funky
+http://www.youtube.com/watch?v=NZM5g1RnVZc
+- Italy tornado up close
+http://www.youtube.com/watch?v=u5Yczy1e_5Y
+- Japan, Tokyo, Sep. 2 2013
+http://www.youtube.com/watch?v=kpq1cZM2kRI
+- Bali, Dec. 2013
+- weak, EFO or maybe 1, but close footage, gets hit, keeps filming, albeit
+  footage is a bit grainy
+http://www.youtube.com/watch?v=eJmTmoUu8JQ
+- really close, left to right
+- rural back-yard, see trees knocked over, and outdoor trampoline blown towards
+  camera at right side of picture
+- not very good resolution, though.  uncertain as to when tornado occurred
+http://www.youtube.com/watch?v=YAzhdQv0MpI
+- bad quality, spanish-speaking country
+- dusty tornado coming straight on, filmer in gas station
+- weak, likely EF0.  really close, but no significant damage
+http://www.youtube.com/watch?v=HdmTpsyQinM
+- Hattiesburg MS, Feb. 10 2013, EF4
+- driving through town, tornado on right of car going parallel direction.  goes
+  in front of car, right-to-left at end of video
+- good quality, tornado close, although structures in the way, and no actual
+  destruction really visible
+http://www.youtube.com/watch?v=Rh-MFoNuQGk</textarea>
+
+<h2 id="settings">vim Settings</h2>
+
+<p>important settings</p>
+
+<pre>  autoindent shiftwidth=2 shiftwidth=2 tabstop=2 expandtab</pre>
+
+<p>complete settings</p>
+
+<pre>    autoindent          ignorecase          scroll=11           textwidth=80
+    backspace=2         modelines=0         shiftwidth=2        ttyfast
+    expandtab           modified            softtabstop=2       ttymouse=xterm
+    helplang=en         pastetoggle=&lt;C-P&gt;   tabstop=2           window=0
+    fileencoding=utf-8
+    fileencodings=ucs-bom,utf-8,default,latin1
+    wildmode=longest,list</pre>
+
+

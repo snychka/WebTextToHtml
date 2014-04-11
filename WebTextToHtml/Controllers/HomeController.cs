@@ -1,4 +1,4 @@
-﻿// Copyright Stefan Nychka, BSD 3-Clause license, COPYRIGHT.txt
+﻿// Copyright Stefan Nychka, BSD 3-Clause license, LICENSE.txt
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core;
@@ -45,7 +45,7 @@ namespace WebTextToHtml.Controllers
                 PrepareIndexView();
                 return View();
             }
-            if (!PrepareText(unEncodedText, "Textarea was empty."))
+            if (!PrepareText(unEncodedText, "Textarea was empty", "Text did not correspond to required format"))
             {
                 PrepareIndexView();
                 return View();
@@ -83,7 +83,9 @@ namespace WebTextToHtml.Controllers
             }
 
             string unEncodedText = GetFileContents(textFile);
-            if (!PrepareText(unEncodedText, "No file chosen for upload, or file is empty"))
+            if (!PrepareText(unEncodedText,
+                "No file chosen for upload, or file is empty",
+                "File did not correspond to required format"))
             {
                 PrepareIndexView();
                 return View();
@@ -247,6 +249,11 @@ namespace WebTextToHtml.Controllers
             return RedirectToAction("Display");
         }
 
+        public ActionResult About()
+        {
+            return View();
+        }
+
         public ActionResult Copyright()
         {
             return View();
@@ -273,12 +280,12 @@ namespace WebTextToHtml.Controllers
         // escapes and converts unEncodedText, putting it in TempData[ContentForViewTDKey].
         // adds errorMessage and returns false if unEncodedText is null
         // not quite focused enough.
-        private bool PrepareText(string unEncodedText, string errorMessage)
+        private bool PrepareText(string unEncodedText, string nullErrorMessage, string formattingErrorMessage)
         {
             TempData.Keep(OriginalContentTDKey);
             if (unEncodedText == null)
             {
-                ModelState.AddModelError("", errorMessage);
+                ModelState.AddModelError("", nullErrorMessage);
                 return false;
             }
             TempData[OriginalContentTDKey] = unEncodedText;
@@ -286,7 +293,18 @@ namespace WebTextToHtml.Controllers
             string text = AntiXssEncoder.HtmlEncode(unEncodedText, false)
                 .Replace("&#10;", "\n")
                 .Replace("&#13;", "\r");
-            string convertedText = ConvertText(text);
+
+            string convertedText;
+            try
+            {
+                convertedText = ConvertText(text);
+            }
+            // must improve this.
+            catch (Exception)
+            {
+                ModelState.AddModelError("", formattingErrorMessage);
+                return false;
+            }
             TempData[ContentForViewTDKey] = convertedText
                 ?? "Text not converted; possible formatting error";
             return true;

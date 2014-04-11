@@ -1,8 +1,0 @@
-C:\Users\stefannychka\Documents\Visual Studio 2012\Projects\WebTextToHtml\TestsUsingConsole\bin\Debug\TestsUsingConsole.exe.config
-C:\Users\stefannychka\Documents\Visual Studio 2012\Projects\WebTextToHtml\TestsUsingConsole\bin\Debug\TestsUsingConsole.exe
-C:\Users\stefannychka\Documents\Visual Studio 2012\Projects\WebTextToHtml\TestsUsingConsole\bin\Debug\TestsUsingConsole.pdb
-C:\Users\stefannychka\Documents\Visual Studio 2012\Projects\WebTextToHtml\TestsUsingConsole\bin\Debug\Converter.dll
-C:\Users\stefannychka\Documents\Visual Studio 2012\Projects\WebTextToHtml\TestsUsingConsole\bin\Debug\Converter.pdb
-C:\Users\stefannychka\Documents\Visual Studio 2012\Projects\WebTextToHtml\TestsUsingConsole\obj\Debug\TestsUsingConsole.csprojResolveAssemblyReference.cache
-C:\Users\stefannychka\Documents\Visual Studio 2012\Projects\WebTextToHtml\TestsUsingConsole\obj\Debug\TestsUsingConsole.exe
-C:\Users\stefannychka\Documents\Visual Studio 2012\Projects\WebTextToHtml\TestsUsingConsole\obj\Debug\TestsUsingConsole.pdb
