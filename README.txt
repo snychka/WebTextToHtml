@@ -129,14 +129,13 @@ Environment
   - https://localhost:44300
 
   Tested a web package deploy to IIS
-  - IIS 8
-    - directly on localhost, Default Web Site
-  - SqlExpress
-    - ssl enabled, self-signed cert
-  - in SSMS, prior to running
+  - 1st set up db
     - had empty SqlExpress db called Text2HtmlRelease
     - added Login 'IIS APPPOOL\DefaultAppPool'
       - gave it reader, writer and ddladmin roles
+  - IIS 8
+    - directly on http://localhost, Default Web Site
+    - ssl enabled, self-signed cert
 
 vim Settings
 ============
