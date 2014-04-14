@@ -13,6 +13,7 @@ TOC
 - Running Code
 - Environment
 - vim Settings
+- Improvements
 
 Conversion Explanation
 ======================
@@ -156,3 +157,25 @@ vim Settings
     fileencoding=utf-8
     fileencodings=ucs-bom,utf-8,default,latin1
     wildmode=longest,list
+
+Improvments
+===========
+
+Many planned improvements to pick away at.  In no particular order, and not necessarily a complete list:
+
+- make directly available a deployment package
+- put the site up somewhere, likely Azure
+  - create a legit. cert.
+- allow users to store multiple documents
+- secure the connection strings
+- consolidate the project names
+- redesign using models as opposed to sessions (maybe)
+  - ensure no over-posting
+- improve the parsing errors
+- ensure any text in textarea remains after 'Upload and Convert' is clicked with no file chosen
+- allow user to set different whitespace (tabs, amount)
+- allow to set title (in html) of downloaded document\
+- store files on file system, and only store loc. and likely checksum in db
+- test on multiple browsers
+- enforce better pswd. rules by instead using SqlMembershipProvider
+
