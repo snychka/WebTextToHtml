@@ -178,4 +178,4 @@ Many planned improvements to pick away at.  In no particular order, and not nece
 - store files on file system, and only store loc. and likely checksum in db
 - test on multiple browsers
 - enforce better pswd. rules by instead using SqlMembershipProvider
-
+- read in tornado text from file, as opposed to hardcoding it in View (maybe)
