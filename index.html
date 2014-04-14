@@ -48,6 +48,7 @@ corresponding html.</p>
 <li><a href="#running-code">Running Code</a></li>
 <li><a href="#environment">Environment</a></li>
 <li><a href="#vim-settings">vim Settings</a></li>
+<li><a href="#Improvements">Improvements</a></li>
 </ul><h2>
 <a name="conversion-explanation" class="anchor" href="#conversion-explanation"><span class="octicon octicon-link"></span></a>Conversion Explanation</h2>
 
@@ -219,6 +220,37 @@ fileencoding=utf-8
 fileencodings=ucs-bom,utf-8,default,latin1
 wildmode=longest,list
 </code></pre>
+
+<h2>
+<a name="improvments" class="anchor" href="#improvments"><span class="octicon octicon-link"></span></a>Improvments</h2>
+
+<p>Many planned improvements to pick away at.  In no particular order, and not necessarily a complete list:</p>
+
+<ul>
+<li>make directly available a deployment package</li>
+<li>put the site up somewhere, likely Azure
+
+<ul>
+<li>create a legit. cert.</li>
+</ul>
+</li>
+<li>allow users to store multiple documents</li>
+<li>secure the connection strings</li>
+<li>consolidate the project names</li>
+<li>redesign using models as opposed to sessions (maybe)
+
+<ul>
+<li>ensure no over-posting</li>
+</ul>
+</li>
+<li>improve the parsing errors</li>
+<li>ensure any text in textarea remains after 'Upload and Convert' is clicked with no file chosen</li>
+<li>allow user to set different whitespace (tabs, amount)</li>
+<li>allow to set title (in html) of downloaded document</li>
+<li>store files on file system, and only store loc. and likely checksum in db</li>
+<li>test on multiple browsers</li>
+<li>enforce better pswd. rules by instead using SqlMembershipProvider</li>
+</ul>
       </section>
     </div>
 
