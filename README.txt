@@ -174,7 +174,7 @@ Many planned improvements to pick away at.  In no particular order, and not nece
 - improve the parsing errors
 - ensure any text in textarea remains after 'Upload and Convert' is clicked with no file chosen
 - allow user to set different whitespace (tabs, amount)
-- allow to set title (in html) of downloaded document\
+- allow to set title (in html) of downloaded document
 - store files on file system, and only store loc. and likely checksum in db
 - test on multiple browsers
 - enforce better pswd. rules by instead using SqlMembershipProvider
