@@ -158,7 +158,7 @@ vim Settings
     fileencodings=ucs-bom,utf-8,default,latin1
     wildmode=longest,list
 
-Improvments
+Improvements
 ===========
 
 Many planned improvements to pick away at.  In no particular order, and not necessarily a complete list:
