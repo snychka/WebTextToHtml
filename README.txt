@@ -110,8 +110,8 @@ Running Code
   - Note
     - will run on https://localhost:44300
     - may need to manually go to https://localhost:44300
-    - using IIS Expess, only tested in Debug mode
-    - will create an empty Localdb db named Text2HtmlContext
+    - using IIS Express, only tested in Debug mode
+    - will create an empty Localdb Text2HtmlContext db if does not exist
 
 
 Environment
@@ -124,9 +124,9 @@ Environment
   - SqlExpress v11.0.3128
 
   IIS Express
-  - used VS 12, yet project was more up-to-date (EF 6, MVC 5)
+  - used VS 12 Pro, yet project was more up-to-date (EF 6, MVC 5)
     - Debug mode
-  - Localdb
+  - Localdb (with no existing Text2HtmlContext db)
   - https://localhost:44300
 
   Tested a web package deploy to IIS
@@ -179,3 +179,5 @@ Many planned improvements to pick away at.  In no particular order, and not nece
 - test on multiple browsers
 - enforce better pswd. rules by instead using SqlMembershipProvider
 - read in tornado text from file, as opposed to hardcoding it in View (maybe)
+- use interfaces to allow for IoC and unit testing
+- figure out more portable version of wrap=off
