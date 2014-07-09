@@ -111,8 +111,7 @@ Running Code
     - will run on https://localhost:44300
     - may need to manually go to https://localhost:44300
     - using IIS Express, only tested in Debug mode
-    - will create an empty Localdb Text2HtmlContext db if does not exist
-
+    - will create an empty Localdb db named Text2HtmlContext (ensure no Text2HtmlContext db already exists)
 
 Environment
 ===========
