@@ -110,6 +110,7 @@ Running Code
   - Note
     - will run on https://localhost:44300
     - may need to manually go to https://localhost:44300
+    - it uses a self-signed cert., so ignore security errors and go to site
     - using IIS Express, only tested in Debug mode
     - will create an empty Localdb db named Text2HtmlContext (ensure no Text2HtmlContext db already exists)
 
