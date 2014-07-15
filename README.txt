@@ -10,8 +10,9 @@ corresponding html.
 
 TOC
 - Conversion Explanation
-- Running Code
-- Environment
+- Running Code (short)
+- Running Code (detailed)
+- Environment (what to install and configuration settings)
 - vim Settings
 - Improvements
 
@@ -99,43 +100,80 @@ Conversion Explanation
     </p>
     ----------------------------------------
 
-Running Code
-============
+Running Code (short)
+====================
 
-  See the Environment section for further information
+  See the 'Running Code (detailed)' section for further info.
 
-  To run using Visual Studio (VS) using IIS Express
-  - Unzip and open in Visual
-  - Run code ... that's basically it!
-  - Note
-    - will run on https://localhost:44300
-    - may need to manually go to https://localhost:44300
-    - it uses a self-signed cert., so ignore security errors and go to site
-    - using IIS Express, only tested in Debug mode
-    - will create an empty Localdb db named Text2HtmlContext (ensure no Text2HtmlContext db already exists)
+  - Unzip the project, and locate WebTextToHtml 2 dirs. in
+  - Run Visual Studio (VS) as an Admin, and open WebTextToHtml.sln
+  - Ensure no LocalDb named Text2HtmlContext exists
+  - In VS, press F5 to run the code.
+  - In IE, change the url to https://<span></span>localhost:44300
+  - Ignore the SSL err. msg. and continue to the website ... that's basically it!
 
-Environment
-===========
+Running Code (detailed)
+=======================
 
-  General Settings
-  - Windows 8, IE 10
-    - IE10 Standards mode
-    - default Internet and Local Internet security settings
-  - SqlExpress v11.0.3128
+  First, see the 'Environment' section for further information what to install
+  and configuration settings.
 
-  IIS Express
-  - used VS 12 Pro, yet project was more up-to-date (EF 6, MVC 5)
-    - Debug mode
-  - Localdb (with no existing Text2HtmlContext db)
-  - https://localhost:44300
+  - Unzip the project
+    - Note the location of the WebTextToHtml.sln file, a couple directories in
+  - Open Visual Studio (VS) as an Admin, then open WebTextToHtml.sln
+    - Running software as an Admin:
+      http://www.eightforums.com/tutorials/9564-run-administrator-windows-8-a.html
+    - File >> Open >> Project/Solution..., navigate to and open
+      WebTextToHtml.sln
+    - Remember the SSL URL in the WebTextToHtml project's properties dialogue
+    - To view the project properties, go to Hanselman's blog on IIS
+      SSL, http://www.hanselman.com/blog/WorkingWithSSLAtDevelopmentTimeIsEasierWithIISExpress.aspx,
+      and search for "properties dialog"
+  - Ensure no LocalDb named Text2HtmlContext exists.  Can rename if it does
+    - Connecting to LocalDb via SSMS:
+      http://geekswithblogs.net/MagnusKarlsson/archive/2012/11/18/connect-to-localdb-using-sql-server-management-studio.aspx
+    - Renaming a db:  http://msdn.microsoft.com/en-us/library/ms345378%28v=sql.110%29.aspx
+  - In VS, press F5 to run the code in Debug mode.  IE should open up, but to a
+    non-ssl url, likely saying "This page can't be displayed"
+  - Change the url in IE to the SSL URL you remembered, which is *likely*
+    http://localhost:44300
+  - Ignore the SSl err. msg and continue to the website.
+
+
+Environment (what to install and configuration settings)
+========================================================
+
+  Software installed
+  - Windows 8
+  - IE 10
+  - Sql Server Express 2012 (v11.0.3128)
+    - Installation (sqlexpress):  http://www.microsoft.com/en-ca/download/details.aspx?id=29062
+    - Install LocalDb:  http://msdn.microsoft.com/en-CA/library/hh510202%28v=sql.110%29.aspx
+    - Ensure SSMS is installed
+  - Visual Studio 2012 Pro. (VS)
+    - Installation (VS):  http://msdn.microsoft.com/en-us/library/e2h7fzkw%28v=vs.110%29.aspx
+    - other versions will likely work
+  - IIS Express (included with VS)
+
+  IE/IIS settings
+  - IE10 Standards mode
+  - default Internet and Local Internet security settings
+  - web site at https://localhost:44300
+
+  VS settings
+  - used VS '12 pro, yet project was more up-to-date (EF 6, MVC 5)
+  - Debug mode
+
+  LocalDb
+  - Localdb, no existing Text2HtmlContext db
 
   Tested a web package deploy to IIS
   - 1st set up db
     - had empty SqlExpress db called Text2HtmlRelease
-    - added Login 'IIS APPPOOL\DefaultAppPool'
+    - added Login &quot;IIS APPPOOL\DefaultAppPool&quot;
       - gave it reader, writer and ddladmin roles
   - IIS 8
-    - directly on http://localhost, Default Web Site
+    - directly on https://<span></span>localhost, Default Web Site
     - ssl enabled, self-signed cert
 
 vim Settings
@@ -164,6 +202,7 @@ Improvements
 Many planned improvements to pick away at.  In no particular order, and not necessarily a complete list:
 
 - make directly available a deployment package
+  - have it install on a web site other than the Default
 - put the site up somewhere, likely Azure
   - create a legit. cert.
 - allow users to store multiple documents
