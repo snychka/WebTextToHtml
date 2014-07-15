@@ -140,39 +140,83 @@ a new paragraph
 <ol>
 <li>Unzip the project</li>
 <li>Run Visual Studio (VS) as an Admin, and open WebTextToHtml.sln</li>
+<li>Ensure no LocalDb named Text2HtmlContext exists</li>
 <li>Press F5 to run the code.</li>
 <li>Change the url to https://localhost:44300</li>
 <li>Ignore the SSL err. msg. and continue to the website ... that's basically it!</li>
 </ol><h2>
 <a name="running-code-detailed" class="anchor" href="#running-code-detailed"><span class="octicon octicon-link"></span></a>Running Code (detailed)</h2>
 
-<p>See the <a href="#environment-what-to-install-and-configuration-settings">Environment</a> section for further information what to install and configuration settings.</p>
+<p>First, see the
+<a href="#environment-what-to-install-and-configuration-settings">Environment</a> section
+for further information what to install and configuration settings.</p>
 
-<h2>
-<a name="environment-what-to-install-and-configuration-settings" class="anchor" href="#environment-what-to-install-and-configuration-settings"><span class="octicon octicon-link"></span></a>Environment (what to install and configuration settings)</h2>
-
-<p>General Settings</p>
+<ol>
+<li>Unzip the project
 
 <ul>
-<li>Windows 8, IE 10
+<li>Note the location of the WebTextToHtml.sln file, a couple directories in</li>
+</ul>
+</li>
+<li>Open Visual Studio (VS) as an Admin, then open WebTextToHtml.sln
+
+<ul>
+<li><a href="http://www.eightforums.com/tutorials/9564-run-administrator-windows-8-a.html">Running software as an Admin</a></li>
+<li>File &gt;&gt; Open &gt;&gt; Project/Solution..., navigate to and open WebTextToHtml.sln</li>
+<li>Remember the SSL URL in the WebTestToHtml project's properties dialogue</li>
+<li>To view the project properties, go to Hanselman's blog on <a href="http://www.hanselman.com/blog/WorkingWithSSLAtDevelopmentTimeIsEasierWithI%0AISExpress.aspx">IIS SSL</a>, and search for <em>properties dialog</em>
+</li>
+</ul>
+</li>
+<li>Ensure no LocalDb named Text2HtmlContext exists.  Can rename if it does
+
+<ul>
+<li><a href="http://geekswithblogs.net/MagnusKarlsson/archive/2012/11/18/connect-to-localdb-using-sql-server-management-studio.aspx">Connecting to LocalDb via SSMS</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/ms345378%28v=sql.110%29.aspx">Renaming a db</a></li>
+</ul>
+</li>
+<li>In VS, press F5 to run the code in Debug mode.  IE should open up, but to a non-ssl url, likely saying "Cannot connect to network."</li>
+<li>Change the url in IE to the SSL URL you remembered, which is <em>likely</em> http://localhost:44300</li>
+<li>Ignore the SSl err. msg and continue to the website.</li>
+</ol><h2>
+<a name="environment-what-to-install-and-configuration-settings" class="anchor" href="#environment-what-to-install-and-configuration-settings"><span class="octicon octicon-link"></span></a>Environment (what to install and configuration settings)</h2>
+
+<p>Software installed</p>
+
+<ul>
+<li>Windows 8</li>
+<li>IE 10</li>
+<li>Sql Server Express 2012 (v11.0.3128)
+
+<ul>
+<li><a href="http://www.microsoft.com/en-ca/download/details.aspx?id=29062">Installation (sqlexpress)</a></li>
+<li><a href="http://msdn.microsoft.com/en-CA/library/hh510202%28v=sql.110%29.aspx">Install LocalDb</a></li>
+<li>Ensure SSMS, Sql Server Managment Studio, is installed</li>
+</ul>
+</li>
+<li>Visual Studio 2012 Pro. (VS)
+
+<ul>
+<li><a href="http://msdn.microsoft.com/en-us/library/e2h7fzkw%28v=vs.110%29.aspx">Installation (VS)</a></li>
+<li>other version will likely work</li>
+</ul>
+</li>
+<li>IIS Express (included in VS)</li>
+</ul><p>IE/IIS settings</p>
 
 <ul>
 <li>IE10 Standards mode</li>
 <li>default Internet and Local Internet security settings</li>
-</ul>
-</li>
-<li>SqlExpress v11.0.3128</li>
-</ul><p>IIS Express</p>
+<li>web site at https://localhost:44300</li>
+</ul><p>VS settings</p>
 
 <ul>
-<li>used VS 12 pro, yet project was more up-to-date (EF 6, MVC 5)
-
-<ul>
+<li>used VS '12 pro, yet project was more up-to-date (EF 6, MVC 5)</li>
 <li>Debug mode</li>
-</ul>
-</li>
-<li>Localdb (with no existing Text2HtmlContext db)</li>
-<li>https://localhost:44300</li>
+</ul><p>LocalDb</p>
+
+<ul>
+<li>Localdb, no existing Text2HtmlContext db</li>
 </ul><p>Tested a web package deploy to IIS</p>
 
 <ul>
@@ -221,7 +265,12 @@ wildmode=longest,list
 <p>Many planned improvements to pick away at.  In no particular order, and not necessarily a complete list:</p>
 
 <ul>
-<li>make directly available a deployment package</li>
+<li>make directly available a deployment package
+
+<ul>
+<li>have it install on a web site other than the Default</li>
+</ul>
+</li>
 <li>put the site up somewhere, likely Azure
 
 <ul>
